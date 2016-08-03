@@ -53,8 +53,11 @@ import dateutil
 import codecs
 from collections import OrderedDict
 
-
-from configparser import ConfigParser, ParsingError
+try:
+    from configparser import ConfigParser, ParsingError
+except ImportError:
+    # python 2
+    from ConfigParser import ConfigParser, ParsingError
 
 logger = logging.getLogger(__name__)
 logger.debug('__name__: %s', __name__)
